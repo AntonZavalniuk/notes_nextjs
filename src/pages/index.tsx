@@ -14,6 +14,9 @@ export default function Home() {
       attachment: 'file.png',
     });
 
+    const reqHeaders = new Headers();
+    reqHeaders.append('Access-Control-Allow-Origin', '*');
+
     const raw = JSON.stringify({
       content: 'This is my content',
       attachment: 'file.png',
@@ -21,6 +24,7 @@ export default function Home() {
 
     const reqOptions = {
       method: 'POST',
+      headers: reqHeaders,
       body: raw,
     };
 
