@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -6,6 +8,27 @@ import styles from '@/styles/Home.module.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const sendFormHandler = async () => {
+    console.log('data', {
+      content: 'This is my content',
+      attachment: 'file.png',
+    });
+
+    const raw = JSON.stringify({
+      content: 'This is my content',
+      attachment: 'file.png',
+    });
+
+    const reqOptions = {
+      method: 'POST',
+      body: raw,
+    };
+
+    fetch('https://hng5513hp4.execute-api.us-east-1.amazonaws.com', reqOptions)
+      .then(() => alert('sent successfully'))
+      .catch((error) => alert(error));
+  };
+
   return (
     <>
       <Head>
@@ -48,6 +71,14 @@ export default function Home() {
             height={37}
             priority
           />
+
+          <button
+            type="submit"
+            className={styles.send}
+            onClick={sendFormHandler}
+          >
+            Send form data
+          </button>
         </div>
 
         <div className={styles.grid}>
