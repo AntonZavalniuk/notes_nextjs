@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   const sendFormHandler = async () => {
     const raw = JSON.stringify({
-      content: 'This is new data',
-      attachment: 'new.jpg',
+      content: 'Content using prod app',
+      attachment: 'prod.jpg',
     });
 
     const reqOptions = {
@@ -20,8 +20,14 @@ export default function Home() {
       body: raw,
     };
 
+    // prod POST
+    // https://4fmje5wj62cvb74kxo6ir24vd40muyul.lambda-url.us-east-1.on.aws/
+
+    // dev POST
+    // 'https://tcxhym62bueyzraxplpiklxx5u0hemvs.lambda-url.us-east-1.on.aws/'
+
     fetch(
-      'https://tcxhym62bueyzraxplpiklxx5u0hemvs.lambda-url.us-east-1.on.aws/',
+      'https://4fmje5wj62cvb74kxo6ir24vd40muyul.lambda-url.us-east-1.on.aws/',
       { mode: 'no-cors', ...reqOptions }
     )
       .then(() => alert('sent successfully'))
@@ -29,8 +35,14 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // prod GET LIST
+    // https://fyn4fhbsvhjnb4pem4xxgbu6wa0dexno.lambda-url.us-east-1.on.aws/
+
+    // dev
+    // https://wuf2vzghf2ys7byxvgo55sx5x40htfze.lambda-url.us-east-1.on.aws/
+
     fetch(
-      'https://wuf2vzghf2ys7byxvgo55sx5x40htfze.lambda-url.us-east-1.on.aws/',
+      'https://fyn4fhbsvhjnb4pem4xxgbu6wa0dexno.lambda-url.us-east-1.on.aws/',
       { mode: 'no-cors' }
     );
   }, []);
