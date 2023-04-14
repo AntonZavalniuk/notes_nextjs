@@ -4,34 +4,36 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const sendFormHandler = async () => {
-    console.log('data', {
-      content: 'This is my content',
-      attachment: 'file.png',
-    });
-
-    const reqHeaders = new Headers();
-    reqHeaders.append('Access-Control-Allow-Origin', '*');
-
     const raw = JSON.stringify({
-      content: 'This is my content',
-      attachment: 'file.png',
+      content: 'This is new data',
+      attachment: 'new.jpg',
     });
 
     const reqOptions = {
       method: 'POST',
-      headers: reqHeaders,
       body: raw,
     };
 
-    fetch('https://hng5513hp4.execute-api.us-east-1.amazonaws.com', reqOptions)
+    fetch(
+      'https://tcxhym62bueyzraxplpiklxx5u0hemvs.lambda-url.us-east-1.on.aws/',
+      { mode: 'no-cors', ...reqOptions }
+    )
       .then(() => alert('sent successfully'))
       .catch((error) => alert(error));
   };
+
+  useEffect(() => {
+    fetch(
+      'https://wuf2vzghf2ys7byxvgo55sx5x40htfze.lambda-url.us-east-1.on.aws/',
+      { mode: 'no-cors' }
+    );
+  }, []);
 
   return (
     <>
