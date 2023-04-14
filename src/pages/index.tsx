@@ -21,30 +21,29 @@ export default function Home() {
     };
 
     // prod POST
-    // https://4fmje5wj62cvb74kxo6ir24vd40muyul.lambda-url.us-east-1.on.aws/
+    // https://iojagj65v3.execute-api.us-east-1.amazonaws.com/notes
 
     // dev POST
-    // 'https://tcxhym62bueyzraxplpiklxx5u0hemvs.lambda-url.us-east-1.on.aws/'
+    // https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes
 
-    fetch(
-      'https://4fmje5wj62cvb74kxo6ir24vd40muyul.lambda-url.us-east-1.on.aws/',
-      { mode: 'no-cors', ...reqOptions }
-    )
+    fetch('https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes', {
+      mode: 'no-cors',
+      ...reqOptions,
+    })
       .then(() => alert('sent successfully'))
       .catch((error) => alert(error));
   };
 
   useEffect(() => {
     // prod GET LIST
-    // https://fyn4fhbsvhjnb4pem4xxgbu6wa0dexno.lambda-url.us-east-1.on.aws/
+    // https://iojagj65v3.execute-api.us-east-1.amazonaws.com/notes
 
     // dev
-    // https://wuf2vzghf2ys7byxvgo55sx5x40htfze.lambda-url.us-east-1.on.aws/
+    // https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes
 
-    fetch(
-      'https://fyn4fhbsvhjnb4pem4xxgbu6wa0dexno.lambda-url.us-east-1.on.aws/',
-      { mode: 'no-cors' }
-    );
+    fetch('https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes', {
+      mode: 'no-cors',
+    });
   }, []);
 
   return (
