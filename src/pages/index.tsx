@@ -26,7 +26,7 @@ export default function Home() {
     // dev POST
     // https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes
 
-    fetch('https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes', {
+    fetch('https://iojagj65v3.execute-api.us-east-1.amazonaws.com/notes', {
       mode: 'no-cors',
       ...reqOptions,
     })
@@ -41,7 +41,7 @@ export default function Home() {
     // dev
     // https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes
 
-    fetch('https://4dnwh0xo90.execute-api.us-east-1.amazonaws.com/notes', {
+    fetch('https://iojagj65v3.execute-api.us-east-1.amazonaws.com/notes', {
       mode: 'no-cors',
     });
   }, []);
